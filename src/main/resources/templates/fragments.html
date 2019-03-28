@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:fragment="head">
+  <meta charset="UTF-8"/>
+  <title th:text="${title}">My Cheeses</title>
+
+  <link rel="stylesheet" th:href="@{/css/style.css}"/>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous"/>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+          integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+          crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+
+<nav th:fragment="navigation" class="navbar navbar-light">
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <a th:href="@{/cheese}" class="nav-link">List</a>
+    </div>
+    <div class="form-group col-md-2">
+      <a th:href="@{/cheese/add}" class="nav-link">Add</a>
+    </div>
+    <div class="form-group col-md-4">
+      <a th:href="@{/cheese/remove}" class="nav-link">Remove</a>
+    </div>
+  </div>
+</nav>
+
+
+</body>
+</html>

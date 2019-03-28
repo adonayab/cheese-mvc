@@ -1,0 +1,41 @@
+.error {
+    color: red;
+}
+
+p {
+    color: green;
+    font-size: 1.5em;
+    font-family: roboto;
+}
+
+h1 {
+  padding: 0.3in;
+  text-align: center;
+  font-family: Georgia;
+  color: rgb(94, 75, 16);
+}
+
+form {
+    padding: 0.5in;
+}
+
+input[type=submit] {
+  background-color: rgb(238, 206, 101);
+  border: none;
+  color: black;
+  padding: 8px 16px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 20px;
+}
+input[type=submit]:hover {
+  background-color: orange;
+  border: none;
+  color: black;
+  padding: 8px 16px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 20px;
+}

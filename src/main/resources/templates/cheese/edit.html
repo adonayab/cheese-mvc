@@ -4,27 +4,27 @@
 
 <body class="container">
 
-<h1 th:text="${title}"></h1>
+<h1 th:text="${editCheeses.cheeseName + ' (' + editCheeses.id + ')'}"></h1>
 <nav th:replace="fragments :: navigation"></nav>
 
-<div class="error" th:if="${errorMessage}" th:utext="${errorMessage}"></div>
 
-<form method="post">
+<form method="post" th:action="@{/cheese}">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label>Cheese Name </label>
-      <input type="text" name="cheeseName" class="form-control"/>
+      <input type="text" name="cheeseName" class="form-control" th:value="${editCheeses.cheeseName}"/>
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label>Description </label>
-      <input name="cheeseDescription" class="form-control"/>
+      <input name="cheeseDescription" class="form-control" th:value="${editCheeses.cheeseDescription}" />
     </div>
   </div>
+  <input type="hidden" th:value="${editCheeses.id}" name="cheeseId" />
   <div class="form-row">
     <div class="form-group col-md-6">
-      <input type="submit" value="Add" />
+      <input type="submit" value="Edit" />
     </div>
   </div>
 </form>
