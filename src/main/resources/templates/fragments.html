@@ -4,6 +4,8 @@
   <meta charset="UTF-8"/>
   <title th:text="${title}">My Cheeses</title>
 
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet" />
   <link rel="stylesheet" th:href="@{/css/style.css}"/>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         rel="stylesheet"
@@ -16,20 +18,13 @@
 
 <body>
 
-
-<nav th:fragment="navigation" class="navbar navbar-light">
-  <div class="form-row">
-    <div class="form-group col-md-2">
-      <a th:href="@{/cheese}" class="nav-link">List</a>
-    </div>
-    <div class="form-group col-md-2">
-      <a th:href="@{/cheese/add}" class="nav-link">Add</a>
-    </div>
-    <div class="form-group col-md-4">
-      <a th:href="@{/cheese/remove}" class="nav-link">Remove</a>
-    </div>
+  <div>
+    <nav class="nav nav-tabs" th:fragment="navigation">
+      <a class="nav-link" th:href="@{/cheese}">Home</a>
+      <a class="nav-link" th:href="@{/category}">Categories</a>
+      <a class="nav-link" th:href="@{/menu}">Menu</a>
+    </nav>
   </div>
-</nav>
 
 
 </body>

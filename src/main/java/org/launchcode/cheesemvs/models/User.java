@@ -1,14 +1,31 @@
 package org.launchcode.cheesemvs.models;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class User {
 
     private int userId;
+
+    @NotNull
+    @NotEmpty(message = "User Name Required")
+    @Size(min=5, max=15, message = "User name must be between 5 and 15 characters")
     private String userName;
+
+    @NotEmpty(message = "Password Required")
+    @Size(min=6, message = "Password must be at least 5 characters")
     private String password;
+
+
+    @Email(regexp = "^(.+)@(.+)$", message = "Invalid email adress")
     private String email;
+
+    @NotNull(message = "Passwords do not match")
+    private String verifyPassword;
+
     private static int nextId = 1;
 
     public User() {
@@ -25,7 +42,7 @@ public class User {
 
     public int getUserId() { return userId; }
 
-    public void setUserId(int userId) { this.userId = userId; }
+//    public void setUserId(int userId) { this.userId = userId; }
 
     public static int getNextId() {
         return nextId;
@@ -47,6 +64,16 @@ public class User {
     }
     public void setPassword(String password) {
         this.password = password;
+        checkPassword();
+    }
+
+    public String getVerifyPassword() {
+        return verifyPassword;
+    }
+
+    public void setVerifyPassword(String verifyPassword) {
+        this.verifyPassword = verifyPassword;
+        checkPassword();
     }
 
     public String getEmail() {
@@ -55,4 +82,11 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    private void checkPassword() {
+        if (!password.equals(verifyPassword) && verifyPassword != null) {
+            verifyPassword = null;
+        }
+    }
+
 }

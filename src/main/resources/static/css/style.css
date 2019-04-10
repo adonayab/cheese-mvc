@@ -1,5 +1,6 @@
 .error {
     color: red;
+    font-style: italic;
 }
 
 p {
@@ -19,7 +20,7 @@ form {
     padding: 0.5in;
 }
 
-input[type=submit] {
+input[type=submit], button {
   background-color: rgb(238, 206, 101);
   border: none;
   color: black;
@@ -29,7 +30,7 @@ input[type=submit] {
   cursor: pointer;
   border-radius: 20px;
 }
-input[type=submit]:hover {
+input[type=submit]:hover, button {
   background-color: orange;
   border: none;
   color: black;
@@ -39,3 +40,29 @@ input[type=submit]:hover {
   cursor: pointer;
   border-radius: 20px;
 }
+
+i {
+   color: rgb(190, 135, 15);
+   text-decoration: none;
+}
+
+.link {
+   color: rgb(189, 149, 30);
+   text-decoration: none;
+}
+.link:hover {
+   color: rgb(94, 75, 16);
+   text-decoration: none;
+}
+
+.nameLink {
+   color: rgb(149, 173, 9);
+   text-decoration: none;
+}
+.nameLink:hover {
+   color: rgb(94, 75, 16);
+   text-decoration: none;
+}
+
+
+

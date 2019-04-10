@@ -6,19 +6,59 @@
 <h1 th:text="${title}">My Cheeses</h1>
 <nav th:replace="fragments :: navigation"></nav>
 
-    <p th:unless="${cheeses} and ${cheeses.size()}">No cheeses ☹</p>
+<!--    <p th:unless="${cheeses} and ${cheeses.size()} and ${cheesesByCategory.size()}">No cheeses ☹</p>-->
 
-    <table class="table">
-        <tr th:if="${cheeses} and ${cheeses.size()}">
-            <th>Name</th>
-            <th>Description</th>
-        </tr>
-        <tr th:each="cheese : ${cheeses}">
-            <td th:text="${cheese.cheeseName}"></td>
-            <td th:text="${cheese.cheeseDescription}"></td>
-            <td><a th:href="@{'/cheese/edit/' + ${cheese.id}}">Edit</a></td>
-        </tr>
-    </table>
+    <div th:if="${cheeses}">
+        <table class="table table-borderless">
+
+            <tr class="thead-light" th:if="${cheeses} and ${cheeses.size()}">
+                <th>Name</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Rating</th>
+                <th></th>
+            </tr>
+            <tr th:each="cheese : ${cheeses}">
+                <td th:text="${cheese.cheeseName}"></td>
+                <td th:text="${cheese.cheeseDescription}"></td>
+                <td th:text="${cheese.category.name}"></td>
+                <td th:text="${cheese.rating}"></td>
+                <td>
+                    <a th:href="@{'/cheese/edit/' + ${cheese.id}}">
+                        <i class="material-icons">edit</i>
+                    </a>
+                </td>
+            </tr>
+        </table>
+
+        <nav class="nav">
+            <a class="nav-link" th:href="@{/cheese/add}">Add</a>
+            <a class="nav-link" th:href="@{/cheese/remove}">Remove</a>
+        </nav>
+
+    </div>
+
+
+    <div th:if="${cheesesByCategory}">
+
+        <table class="table">
+            <tr class="thead-light" th:if="${cheesesByCategory}">
+                <th>Name</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Rating</th>
+                <th></th>
+            </tr>
+            <tr th:each="cheese : ${cheesesByCategory}">
+                <td th:text="${cheese.cheeseName}"></td>
+                <td th:text="${cheese.cheeseDescription}"></td>
+                <td th:text="${cheese.category.name}"></td>
+                <td th:text="${cheese.rating}"></td>
+                <td><a th:href="@{'/cheese/edit/' + ${cheese.id}}">Edit</a></td>
+            </tr>
+        </table>
+
+    </div>
 
 
 </body>

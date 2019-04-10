@@ -7,21 +7,47 @@
 <h1 th:text="${title}"></h1>
 <nav th:replace="fragments :: navigation"></nav>
 
-<div class="error" th:if="${errorMessage}" th:utext="${errorMessage}"></div>
+<form method="post" th:object="${cheese}">
 
-<form method="post">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label>Cheese Name </label>
-      <input type="text" name="cheeseName" class="form-control"/>
+      <input class="form-control" th:field="*{cheeseName}"/>
+      <span th:errors="*{cheeseName}" class="error"></span>
     </div>
   </div>
+
   <div class="form-row">
     <div class="form-group col-md-6">
       <label>Description </label>
-      <input name="cheeseDescription" class="form-control"/>
+      <input class="form-control" th:field="*{cheeseDescription}" />
+      <span th:errors="*{cheeseDescription}" class="error"></span>
     </div>
   </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+    <label th:for="type">Type </label>
+    <select name="categoryId" class="custom-select" >
+      <option th:each="category : ${categories}"
+              th:text="${category.name}"
+              th:value="${category.id}"></option>
+    </select>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label>Rating </label>
+      <select th:field="*{rating}" class="custom-select" >
+        <option th:each="i : ${#numbers.sequence(1, 5)}"
+                th:text="${i}"
+                th:value="${i}">
+        </option>
+      </select>
+    </div>
+  </div>
+
   <div class="form-row">
     <div class="form-group col-md-6">
       <input type="submit" value="Add" />
