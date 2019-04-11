@@ -69,21 +69,6 @@ public class CheeseController {
     @RequestMapping(value = "remove", method = RequestMethod.POST)
     public String processRemoveCheeseForm(@RequestParam int[] cheeseIds) {
 
-//        ArrayList<Cheese> cheesesToBeRemoved = new ArrayList<>();
-//        for (int cheeseId: cheeseIds) {
-//            cheesesToBeRemoved.add(cheeseDao.findOne(cheeseId));
-//        }
-//
-//
-//
-//        Iterable<Menu> menus = menuDao.findAll();
-//        for(Menu menu: menus) {
-//            for(Cheese cheese: cheesesToBeRemoved){
-//                menu.removeItem(cheese);
-//                menuDao.save(menu);
-//            }
-//        }
-
         for (int cheeseId: cheeseIds) {
             cheeseDao.delete(cheeseId);
         }
